@@ -172,19 +172,20 @@ function setup(env) {
 
 		for (i = 0; i < len; i++) {
 			if (!split[i]) {
-				// ignore empty strings
 				continue;
 			}
 
-			namespaces = split[i].replace(/\*/g, '.*?');
+			const ns = split[i].replace(/\*/g, '.*?');
 
-			if (namespaces[0] === '-') {
-				createDebug.skips.push(new RegExp('^' + namespaces.slice(1) + '$'));
+			const escapedNs = ns.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
+			if (ns[0] === '-') {
+				createDebug.skips.push(new RegExp('^' + escapedNs.slice(1) + '$'));
 			} else {
-				createDebug.names.push(new RegExp('^' + namespaces + '$'));
+				createDebug.names.push(new RegExp('^' + escapedNs + '$'));
 			}
 		}
 	}
+
 
 	/**
 	* Disable debug output.
