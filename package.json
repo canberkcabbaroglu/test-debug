@@ -1,9 +1,9 @@
 {
-  "name": "test-debug",
-  "version": "1.0.2",
+  "name": "tyt-debug",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/canberkcabbaroglu/test-debug.git"
+    "url": "https://github.com/canberkcabbaroglu/tyt-debug.git"
   },
   "description": "Lightweight debugging utility for Node.js and the browser",
   "keywords": [
